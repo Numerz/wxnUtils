@@ -1,9 +1,6 @@
 package wxn.util.tools;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 
 public class Tools {
     public static <T extends Comparable<T>> T numberMax(T a, T b){
@@ -29,8 +26,33 @@ public class Tools {
         arr[b] = tmp;
     }
 
+    // Insertion Sort Part
+
+    /**
+     * 插入排序
+     * @param arr
+     */
+    public static void insertionSort(int[] arr){
+        for (int i = 1; i < arr.length; i++) {
+            if (arr[i] < arr[i-1]){
+                int num = arr[i];
+                int j;
+                for (j = i; j > 0 && num < arr[j-1] ; j--) {
+                    arr[j] = arr[j-1];
+                }
+                arr[j] = num;
+            }
+        }
+    }
+
     // Quick Sort Part
 
+    /**
+     * 快速排序
+     * @param arr
+     * @param start
+     * @param end
+     */
     public static void quickSort(int[] arr, int start, int end){
         if (start >= end - 1){
             return;
@@ -109,7 +131,8 @@ public class Tools {
     // Counting Sort Part
 
     /**
-     * 计数排序 元素值范围[0,k]
+     * 计数排序
+     * 元素为整数 元素值范围 range [0, k]
      * @param arr Array
      * @param k 最大值
      * @return sorted array
@@ -142,7 +165,7 @@ public class Tools {
         int digit = getMaxDigit(arr);
 
         for (int i = 0; i < digit; i++) {
-            bucketSort(arr, i);
+            radixBucketSort(arr, i);
         }
     }
 
@@ -171,7 +194,7 @@ public class Tools {
         return (num + "").length();
     }
 
-    private static void bucketSort(int[] arr, int digit){
+    private static void radixBucketSort(int[] arr, int digit){
         List<List<Integer>> bucket = new ArrayList<>();
         for (int i = 0; i < 10; i++) {
             bucket.add(new ArrayList<>());
@@ -194,11 +217,53 @@ public class Tools {
         }
     }
 
+    // Bucket Sort Part
+
+    /**
+     * 桶排序
+     * 元素值范围 range [0, 1)
+     * 元素均匀、独立地分布在[0, 1)区间上。
+     * 即使不服从均匀分布，只要所有桶大小的平方和与总的元素数呈线性关系，也能在线性时间完成
+     * @param arr
+     * @return
+     */
+    public static double[] bucketSort(double[] arr){
+        int n = arr.length;
+        List<List<Double>> buckets = new ArrayList<>();
+        for (int i = 0; i < n; i++) {
+            buckets.add(new ArrayList<>());
+        }
+
+        for (double num :
+                arr) {
+            int idx = (int) Math.floor(n * num);
+            buckets.get(idx).add(num);
+        }
+
+        for (List<Double> bucket :
+                buckets) {
+            Collections.sort(bucket);
+        }
+
+        double[] res = new double[n];
+        int idx = 0;
+        for (List<Double> bucket :
+                buckets) {
+            for (double num :
+                    bucket) {
+                res[idx++] = num;
+            }
+        }
+
+        return res;
+    }
+
     public static void main(String[] args) {
         int[] a = {2,8,7,1,3,5,6,4,9};
         int[] arr = new int[] { 321, 1234, 543, 324, 24, 960, 540, 672, 783, 1000 };
-        radixSort(arr);
-        System.out.println(Arrays.toString(arr));
-
+        int[] blank = {};
+        double[] d = {0.79, 0.13, 0.16, 0.64, 0.39, 0.20, 0.89, 0.53, 0.71, 0.42};
+        d = bucketSort(d);
+        System.out.println(Arrays.toString(d));
     }
 }
