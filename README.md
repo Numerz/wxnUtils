@@ -37,7 +37,7 @@
 9. length：数组长度  
 10. size：数组中可用元素个数  
 
-待完成：  
+**待完成：**  
 1. 增加comparator  
 2. 分别用 Comparable 和 Comparator 两种方法作比较，并根据此实现功能方法  
   
