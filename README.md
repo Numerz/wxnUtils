@@ -2,8 +2,8 @@
 一个工具库  
 
   
-## 数组工具
-### Tools
+# 数组工具
+## Tools
 数组的工具方法  
 
 **功能：**
@@ -21,8 +21,8 @@
   即使不服从均匀分布，只要所有桶大小的平方和与总的元素数呈线性关系，也能在线性时间完成。  
   
   
-## 数据结构  
-### Heap  
+# 数据结构  
+## Heap  
 数组实现的最大堆  
 
 **功能：**
@@ -42,7 +42,7 @@
 2. 分别用 Comparable 和 Comparator 两种方法作比较，并根据此实现功能方法  
   
   
-### AbstractTree  
+## AbstractTree  
 抽象树  
 
 **功能：**  
@@ -52,7 +52,7 @@
 4. postorder：后序遍历  
   
   
-### BinarySearchTree  
+## BinarySearchTree  
 二叉搜索树  
 继承AbstractTree  
 支持用 Comparable 和 Comparator 两种方法作比较  
@@ -70,5 +70,5 @@
 8. delete：删除某个数据所在结点  
 
 
-## 测试
+# 测试
 test包中有一些测试类  
