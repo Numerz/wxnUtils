@@ -3,7 +3,18 @@
 
 **征集名字ing**  
 
-  
+# 脚本工具
+src.wxn.util.scripts下有一些工具脚本
+
+## email
+email_delete.py 可删除符合条件的邮件，可用于删除报警邮件，参照[利用python读取邮件](https://blog.csdn.net/lys_828/article/details/104120339)食用
+
+注意：在163邮箱测试失败（[163作怪](http://stackoverflow.com/questions/27797705/python-login-163-mail-server)），qq邮箱可用
+
+## txt
+一些对txt做变换的脚本
+
+
 # 数组工具
 ## Tools
 数组的工具方法  
