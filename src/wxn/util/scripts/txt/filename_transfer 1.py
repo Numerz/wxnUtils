@@ -28,8 +28,8 @@ def rename(transfer_path, json_data, prefix, index):
         f.write(json_str)
 
 
-path = r"C:\Users\Jiang Weizan\Desktop\怡创\海格怡创-潮州\海格怡创-潮州\诺基亚"
-prefix_dir = "怡创"
+path = r".\picture_dir"
+prefix_dir = "trainimg"
 files = os.listdir(path)
 json_files = []
 for file in list(files):
